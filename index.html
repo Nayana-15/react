@@ -3,29 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>React</title>
+  <title>React without JSX</title>
 </head>
 <body>
   <div id="root"></div>
 
-  <!-- React and ReactDOM CDN links -->
-  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
-  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
-
-  <!-- Babel for JSX (optional if you're using JSX instead of createElement) -->
-  <!-- <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script> -->
+  <!-- React and ReactDOM -->
+  <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
 
   <script>
     const ul = React.createElement(
       "ul",
-      { style: { color: "blue" } },
+      { style: { color: "blue", fontSize: "24px" } },
       React.createElement("li", null, "save"),
       React.createElement("li", null, "me"),
       React.createElement("li", null, "JSX")
     );
 
-    const root = ReactDOM.createRoot(document.getElementById("root"));
-    root.render(ul);
+    ReactDOM.render(ul, document.getElementById("root"));
   </script>
 </body>
 </html>
