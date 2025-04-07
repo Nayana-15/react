@@ -29,7 +29,10 @@
     function Main(props) {
       return (
         <section>
-          <p>We serve the most {props.adjective} {" "} food around.</p>
+         <ul>
+            {props.dishes.map((dish, index) => <li key={index}>{dish}</li>)}
+
+         </ul>
         </section>
       );
     }
@@ -39,12 +42,16 @@
           <p>Copyright {props.year}</p>        </footer>
       )
     }
-
+    const dishes =[
+    "Blank Bean Soup",
+    "Macaroni and Chees",
+    "Salmon and Potatoes"];
     function App() {
       return (
         <div>
           <Header name="jnana"/>
-          <Main adjective="amazing"/>
+          <Main adjective="amazing"
+          dishes={dishes}/>
           <Footer year={new Date().getFullYear()}/>
         </div>
       );
