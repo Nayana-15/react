@@ -25,7 +25,7 @@
     ]
   },
   "browserslist": {
-    "production": [
+    "production" : [
       ">0.2%",
       "not dead",
       "not op_mini all"
@@ -36,4 +36,4 @@
       "last 1 safari version"
     ]
   }
-}
+}                                                                                                        

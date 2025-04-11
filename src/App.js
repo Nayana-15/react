@@ -1,24 +1,37 @@
-import logo from './logo.svg';
 import './App.css';
+// import { useState,useEffect } from 'react';
+import { useReducer } from 'react';
+const [firstcity,second]=["Tokyo","bengalure","bend"]
+console.log(firstcity);
+console.log(second);
+function App({library}) {
+  const [checked, setChecked] = useReducer(checked=>!checked,false);
+  // const [emotion,setEmotion]=useState("Happy");
+  // const [secondary, setSecondary]= useState("tired");
 
-function App() {
+  // useEffect(()=> {
+  //   console.log(`it's ${emotion} right now `)
+  // },[emotion]);
+
+  // useEffect(()=> {console.log(`it's  ${secondary} around here`)
+  // },[secondary]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+           {/* <h1>Current emotion is {emotion}</h1>
+    <button onClick={() => setEmotion("sad") } >
+      sad
+      </button>
+      <button onClick={() => setEmotion("excited") } >
+      excited 
+      </button>
+      <h2>Current secondary emotion is {secondary}. </h2>
+      <button onClick={()=> setSecondary("Grateful")}>Grateful</button>  */}
+      <input type="checkbox" value={checked} onChange={setChecked}/>
+      <label>{checked ? "checked" : "not checked"}</label>
     </div>
+
+  
   );
 }
 
