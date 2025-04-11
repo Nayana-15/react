@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>React with JSX</title>
+</head>
+<body>
+  <div id="root"></div>
+
+  <!-- React and ReactDOM -->
+  <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+
+  <!-- Babel for JSX -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <!-- Your JSX Code -->
+  <script type="text/babel">
+    function Header(props) {
+        
+      return (
+        <header>
+          <h1>{props.name}'s Kitchen</h1>
+        </header>
+      );
+    }
+
+    function Main(props) {
+      return (
+        <section>
+         <ul>
+            {props.dishes.map((dish) => <li key={dish.id}>{dish.title}</li>)}
+
+         </ul>
+        </section>
+      );
+    }
+    function Footer(props) {
+      return (
+        <footer>
+          <p>Copyright {props.year}</p>        </footer>
+      )
+    }
+    const dishes =[
+    "Blank Bean Soup",
+    "Macaroni and Chees",
+    "Salmon and Potatoes",
+    "Pizza"];
+    const dishObjects= dishes.map((dish,index) => ({ id:index, title: dish}));
+    function App() {
+      return (
+        <div>
+          <Header name="jnana"/>
+          <Main adjective="amazing"
+          dishes={dishObjects}/>
+          <Footer year={new Date().getFullYear()}/>
+        </div>
+      );
+    }
+
+    ReactDOM.render(<App />, document.getElementById("root"));
+  </script>
+</body>
+</html>
